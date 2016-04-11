@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project name="AntDemo" default="run" basedir=".">
+<project name="AntDemo" default="test" basedir=".">
 <property name="src" value="src"/>
 <property name="dest" value="classes"/>
 <property name="helloant_jar" value="helloant.jar"/>
@@ -13,13 +13,13 @@
    <jar jarfile="${helloant_jar}" basedir="${dest}"/>
 </target>
 <target name="run" depends="build">
-   <java classname="helloworld.hello" classpath="${helloant_jar}"/>
+   <java classname="hello" classpath="${helloant_jar}"/>
 </target>
 <target name="clean">
    <delete dir="${dest}" />
    <delete file="${helloant_jar}" />
 </target>
-<target name="rerun" depends="clean,run">
+<target name="test" depends="clean,run">
    <ant target="clean" />
    <ant target="run" />
 </target>
